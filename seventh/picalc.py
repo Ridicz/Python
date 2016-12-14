@@ -1,9 +1,12 @@
-import random,math
+import random
+import math
 
 
 def is_inside(x, y):
-    dist = math.sqrt(math.pow(x-0.5, 2)+math.pow((y-0.5), 2))    
-    if dist < 0.5:
+    x2 = x - 0.5
+    y2 = y - 0.5
+    distance = math.sqrt(x2 * x2 + y2 * y2)
+    if distance < 0.5:
         return True
     else:
         return False
@@ -15,7 +18,7 @@ def calc_pi(n=100):
         if is_inside(random.random(), random.random()):
             count += 1
     area = float(count)/float(n)
-    pi = area/0.5/0.5
+    pi = area / 0.5 / 0.5
     return pi
 
 
