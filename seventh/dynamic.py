@@ -1,3 +1,6 @@
+import time
+
+
 def recursive(i, j):
     if i < 0 or j < 0:
         raise ValueError
@@ -36,5 +39,13 @@ def dynamic(i, j):
         dictionary[(i, j)] = 0.5 * (dynamic(i - 1, j) + dynamic(i, j - 1))
         return dictionary[(i, j)]
 
-print dynamic(5, 10)
-print recursive(5, 10)
+
+start = time.time()
+dyn = dynamic(7, 12)
+end = time.time()
+print("Dynamic: " + str(dyn) + ", time: " + str(end - start))
+
+start2 = time.time()
+rec = recursive(7, 12)
+end2 = time.time()
+print("Recursive: " + str(rec) + ", time: " + str(end2 - start2))
