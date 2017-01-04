@@ -61,7 +61,14 @@ class Map:
     def random_start_map(self, probability_of_alive):
         for row in range(0, self.rows):
             for col in range(0, self.columns):
-                if random.randint(0, probability_of_alive) > 50:
+                if random.randint(0, 100) < probability_of_alive:
                     self.map[row, col].resurrect()
+                else:
+                    self.map[row, col].kill()
 
-        return self.map
+        return self
+
+    def reset_map(self):
+        for row in range(0, self.rows):
+            for col in range(0, self.columns):
+                self.map[row, col].kill()
