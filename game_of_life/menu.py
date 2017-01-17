@@ -22,6 +22,7 @@ class Menu:
             "Probability of alive cell: {0}% (Left and Right)".format(str(self.probability_of_alive)), True,
             grey_color)
         text_random = font.render("Press '1' to spawn a Gosper Glider Gun.", True, grey_color)
+        text_menu = font.render("Press '2' anytime to break and show menu.", True, grey_color)
 
         while loop:
             event = pygame.event.poll()
@@ -44,6 +45,7 @@ class Menu:
             screen.blit(text_game_speed, (150, 250))
             screen.blit(text_probability, (150, 300))
             screen.blit(text_random, (150, 350))
+            screen.blit(text_menu, (150, 400))
             pygame.display.flip()
 
         return {"Map": self.starting_map, "Speed": self.starting_game_speed, "Probability": self.probability_of_alive}
